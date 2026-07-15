@@ -1,0 +1,671 @@
+{
+  "name": "SEA Group of Institutions",
+  "domain": "seaedu.ac.in",
+  "phone": "+91-6366453030 / 7353945999",
+  "email": "seaeduinfo@seaedu.ac.in",
+  "social": {
+    "facebook": "https://www.facebook.com/share/1C2GkDRqiD/",
+    "instagram": "https://www.instagram.com/sea_group_of_institutions/",
+    "youtube": "https://youtube.com/@seaedu2023",
+    "whatsapp": "https://whatsapp.com/channel/0029Vb7dfzV96H4aaswTsb2x"
+  },
+  "extractedAt": "2026-07-15T15:27:45.358Z",
+  "navigation": {
+    "About Us": [
+      {
+        "title": "Overview",
+        "route": "/about/overview"
+      },
+      {
+        "title": "Founder's Message",
+        "route": "/about/founder"
+      },
+      {
+        "title": "Chairman's Desk",
+        "route": "/about/chairmans-message"
+      },
+      {
+        "title": "Board of Trustees",
+        "route": "/about/board-of-trustees"
+      },
+      {
+        "title": "Director's Message",
+        "route": "/about/director-message"
+      },
+      {
+        "title": "Principals",
+        "route": "/about/principals"
+      }
+    ],
+    "Academics": [
+      {
+        "title": "UG Courses",
+        "children": [
+          {
+            "title": "BE",
+            "external": "https://seacet.edu.in/"
+          },
+          {
+            "title": "Degree",
+            "external": "https://seadegree.ac.in/"
+          },
+          {
+            "title": "Law",
+            "external": "https://sealawcollege.edu.in/"
+          },
+          {
+            "title": "Nursing",
+            "external": "https://seanursing.edu.in/"
+          }
+        ]
+      },
+      {
+        "title": "PG Courses",
+        "children": [
+          {
+            "title": "M.Tech",
+            "external": "https://seacet.edu.in/"
+          },
+          {
+            "title": "MBA (VTU)",
+            "external": "https://seacet.edu.in/"
+          },
+          {
+            "title": "MBA (BU)",
+            "external": "https://seadegree.ac.in/"
+          },
+          {
+            "title": "M.Com",
+            "external": "https://seacet.edu.in/"
+          },
+          {
+            "title": "M.Sc Nursing",
+            "external": "https://seanursing.edu.in/"
+          },
+          {
+            "title": "Master of Arts",
+            "external": "https://seadegree.ac.in/"
+          },
+          {
+            "title": "M.Sc (CS)",
+            "external": "https://seadegree.ac.in/"
+          }
+        ]
+      },
+      {
+        "title": "Value Added Programs",
+        "route": "/academics/value-added-programs"
+      },
+      {
+        "title": "Research Center",
+        "route": "/academics/research-center"
+      },
+      {
+        "title": "Pre-University",
+        "route": "/academics/pre-university"
+      },
+      {
+        "title": "MTTM",
+        "route": "/academics/mttm"
+      },
+      {
+        "title": "B.Sc Clinical Nutrition",
+        "route": "/academics/bsc-clinical-nutrition"
+      },
+      {
+        "title": "Hospital Administration",
+        "route": "/academics/hospital-administration"
+      }
+    ],
+    "Institutions": [
+      {
+        "title": "SEA College of Engineering & Technology",
+        "route": "/institutions/sea-college-of-engineering-technology"
+      },
+      {
+        "title": "SEA College of Management Studies",
+        "route": "/institutions/sea-college-of-management-studies"
+      },
+      {
+        "title": "SEA College of Research & Development Center",
+        "route": "/institutions/sea-college-of-research-development-center"
+      },
+      {
+        "title": "SEA College of Nursing",
+        "route": "/institutions/sea-college-of-nursing"
+      },
+      {
+        "title": "SEA College of Law",
+        "route": "/institutions/sea-college-of-law"
+      },
+      {
+        "title": "SEA College of Science, Commerce & Arts",
+        "route": "/institutions/sea-college-of-science-commerce-arts"
+      },
+      {
+        "title": "SEA Composite PU College",
+        "route": "/institutions/sea-composite-pu-college"
+      },
+      {
+        "title": "SEA Evening College",
+        "route": "/institutions/sea-evening-college"
+      },
+      {
+        "title": "SEA B.Ed College",
+        "route": "/institutions/sea-bed-college"
+      },
+      {
+        "title": "SEA International School",
+        "route": "/institutions/sea-international-school"
+      },
+      {
+        "title": "SEA Primary & Higher Secondary School",
+        "route": "/institutions/sea-primary-higher-secondary-school"
+      },
+      {
+        "title": "SEA Industrial Training Institute",
+        "route": "/institutions/sea-industrial-training-institute"
+      }
+    ],
+    "Admissions": [
+      {
+        "title": "Apply Online",
+        "route": "/admissions/apply-online"
+      },
+      {
+        "title": "Admission",
+        "route": "/admissions/admission"
+      },
+      {
+        "title": "Admission Procedure",
+        "route": "/admissions/admission-procedure"
+      },
+      {
+        "title": "Foreign National",
+        "route": "/admissions/foreign-national"
+      },
+      {
+        "title": "Financial Aid",
+        "route": "/admissions/financial-aid"
+      },
+      {
+        "title": "NRI Admission",
+        "route": "/admissions/nri-admission"
+      }
+    ],
+    "Our Campus": [
+      {
+        "title": "Campus Infrastructure",
+        "route": "/campus/campus-infrastructure"
+      },
+      {
+        "title": "Digital Infrastructure",
+        "route": "/campus/digital-infrastructure"
+      },
+      {
+        "title": "Accommodation & Hostel Facilities",
+        "route": "/campus/accommodation-hostel-facilities"
+      },
+      {
+        "title": "Sports",
+        "route": "/campus/sports"
+      }
+    ],
+    "Placements": [
+      {
+        "title": "Placement Overview",
+        "route": "/placements/placement-overview"
+      },
+      {
+        "title": "Career Advancement Cell",
+        "route": "/placements/career-advancement-cell"
+      },
+      {
+        "title": "Recruiters",
+        "route": "/placements/recruiters"
+      }
+    ],
+    "Gallery": [
+      {
+        "title": "Photo Gallery",
+        "route": "/gallery/photo-gallery"
+      },
+      {
+        "title": "Video Gallery",
+        "route": "/gallery/video-gallery"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "title": "Home",
+      "slug": "home",
+      "section": "home",
+      "route": "/",
+      "sourceUrl": "https://seaedu.ac.in/",
+      "contentFile": "content/home/home.md",
+      "contentLength": 10186,
+      "imageCount": 83
+    },
+    {
+      "title": "Overview",
+      "slug": "overview",
+      "section": "about",
+      "route": "/about/overview",
+      "sourceUrl": "https://seaedu.ac.in/page/overview",
+      "contentFile": "content/about/overview.md",
+      "contentLength": 9227,
+      "imageCount": 7
+    },
+    {
+      "title": "Founder's Message",
+      "slug": "founder",
+      "section": "about",
+      "route": "/about/founder",
+      "sourceUrl": "https://seaedu.ac.in/page/founder",
+      "contentFile": "content/about/founder.md",
+      "contentLength": 2786,
+      "imageCount": 1
+    },
+    {
+      "title": "Chairman's Desk",
+      "slug": "chairmans-message",
+      "section": "about",
+      "route": "/about/chairmans-message",
+      "sourceUrl": "https://seaedu.ac.in/page/chairmans-message",
+      "contentFile": "content/about/chairmans-message.md",
+      "contentLength": 1887,
+      "imageCount": 1
+    },
+    {
+      "title": "Board of Trustees",
+      "slug": "board-of-trustees",
+      "section": "about",
+      "route": "/about/board-of-trustees",
+      "sourceUrl": "https://seaedu.ac.in/page/board-of-trustees",
+      "contentFile": "content/about/board-of-trustees.md",
+      "contentLength": 611,
+      "imageCount": 8
+    },
+    {
+      "title": "Director's Message",
+      "slug": "director-message",
+      "section": "about",
+      "route": "/about/director-message",
+      "sourceUrl": "https://seaedu.ac.in/page/director-message",
+      "contentFile": "content/about/director-message.md",
+      "contentLength": 3026,
+      "imageCount": 1
+    },
+    {
+      "title": "Principals",
+      "slug": "principals",
+      "section": "about",
+      "route": "/about/principals",
+      "sourceUrl": "https://seaedu.ac.in/page/principals",
+      "contentFile": "content/about/principals.md",
+      "contentLength": 877,
+      "imageCount": 8
+    },
+    {
+      "title": "Value Added Programs",
+      "slug": "value-added-programs",
+      "section": "academics",
+      "route": "/academics/value-added-programs",
+      "sourceUrl": "https://seaedu.ac.in/page/value-added-programs",
+      "contentFile": "content/academics/value-added-programs.md",
+      "contentLength": 545,
+      "imageCount": 19
+    },
+    {
+      "title": "Research Center",
+      "slug": "research-center",
+      "section": "academics",
+      "route": "/academics/research-center",
+      "sourceUrl": "https://seaedu.ac.in/page/research-center",
+      "contentFile": "content/academics/research-center.md",
+      "contentLength": 7428,
+      "imageCount": 0
+    },
+    {
+      "title": "Pre-University",
+      "slug": "pre-university",
+      "section": "academics",
+      "route": "/academics/pre-university",
+      "sourceUrl": "https://seaedu.ac.in/page/pre-university",
+      "contentFile": "content/academics/pre-university.md",
+      "contentLength": 494,
+      "imageCount": 3
+    },
+    {
+      "title": "MTTM",
+      "slug": "mttm",
+      "section": "academics",
+      "route": "/academics/mttm",
+      "sourceUrl": "https://seaedu.ac.in/page/mttm",
+      "contentFile": "content/academics/mttm.md",
+      "contentLength": 3278,
+      "imageCount": 0
+    },
+    {
+      "title": "B.Sc Clinical Nutrition",
+      "slug": "bsc-clinical-nutrition",
+      "section": "academics",
+      "route": "/academics/bsc-clinical-nutrition",
+      "sourceUrl": "https://seaedu.ac.in/page/bsc-clinical-nutrition",
+      "contentFile": "content/academics/bsc-clinical-nutrition.md",
+      "contentLength": 1523,
+      "imageCount": 0
+    },
+    {
+      "title": "Hospital Administration",
+      "slug": "hospital-administration",
+      "section": "academics",
+      "route": "/academics/hospital-administration",
+      "sourceUrl": "https://seaedu.ac.in/page/hospital-administration",
+      "contentFile": "content/academics/hospital-administration.md",
+      "contentLength": 3380,
+      "imageCount": 0
+    },
+    {
+      "title": "SEA College of Engineering & Technology",
+      "slug": "sea-college-of-engineering-technology",
+      "section": "institutions",
+      "route": "/institutions/sea-college-of-engineering-technology",
+      "sourceUrl": "https://seaedu.ac.in/page/sea-college-of-engineering-technology",
+      "contentFile": "content/institutions/sea-college-of-engineering-technology.md",
+      "contentLength": 18003,
+      "imageCount": 1
+    },
+    {
+      "title": "SEA College of Management Studies",
+      "slug": "sea-college-of-management-studies",
+      "section": "institutions",
+      "route": "/institutions/sea-college-of-management-studies",
+      "sourceUrl": "https://seaedu.ac.in/page/sea-college-of-management-studies",
+      "contentFile": "content/institutions/sea-college-of-management-studies.md",
+      "contentLength": 2671,
+      "imageCount": 1
+    },
+    {
+      "title": "SEA College of Research & Development Center",
+      "slug": "sea-college-of-research-development-center",
+      "section": "institutions",
+      "route": "/institutions/sea-college-of-research-development-center",
+      "sourceUrl": "https://seaedu.ac.in/page/sea-college-of-research-development-center",
+      "contentFile": "content/institutions/sea-college-of-research-development-center.md",
+      "contentLength": 3115,
+      "imageCount": 1
+    },
+    {
+      "title": "SEA College of Nursing",
+      "slug": "sea-college-of-nursing",
+      "section": "institutions",
+      "route": "/institutions/sea-college-of-nursing",
+      "sourceUrl": "https://seaedu.ac.in/page/sea-college-of-nursing",
+      "contentFile": "content/institutions/sea-college-of-nursing.md",
+      "contentLength": 8270,
+      "imageCount": 1
+    },
+    {
+      "title": "SEA College of Law",
+      "slug": "sea-college-of-law",
+      "section": "institutions",
+      "route": "/institutions/sea-college-of-law",
+      "sourceUrl": "https://seaedu.ac.in/page/sea-college-of-law",
+      "contentFile": "content/institutions/sea-college-of-law.md",
+      "contentLength": 10331,
+      "imageCount": 1
+    },
+    {
+      "title": "SEA College of Science, Commerce & Arts",
+      "slug": "sea-college-of-science-commerce-arts",
+      "section": "institutions",
+      "route": "/institutions/sea-college-of-science-commerce-arts",
+      "sourceUrl": "https://seaedu.ac.in/page/sea-college-of-science-commerce-arts",
+      "contentFile": "content/institutions/sea-college-of-science-commerce-arts.md",
+      "contentLength": 1538,
+      "imageCount": 1
+    },
+    {
+      "title": "SEA Composite PU College",
+      "slug": "sea-composite-pu-college",
+      "section": "institutions",
+      "route": "/institutions/sea-composite-pu-college",
+      "sourceUrl": "https://seaedu.ac.in/page/sea-composite-pu-college",
+      "contentFile": "content/institutions/sea-composite-pu-college.md",
+      "contentLength": 2097,
+      "imageCount": 1
+    },
+    {
+      "title": "SEA Evening College",
+      "slug": "sea-evening-college",
+      "section": "institutions",
+      "route": "/institutions/sea-evening-college",
+      "sourceUrl": "https://seaedu.ac.in/page/sea-evening-college",
+      "contentFile": "content/institutions/sea-evening-college.md",
+      "contentLength": 399,
+      "imageCount": 1
+    },
+    {
+      "title": "SEA B.Ed College",
+      "slug": "sea-bed-college",
+      "section": "institutions",
+      "route": "/institutions/sea-bed-college",
+      "sourceUrl": "https://seaedu.ac.in/page/sea-bed-college",
+      "contentFile": "content/institutions/sea-bed-college.md",
+      "contentLength": 716,
+      "imageCount": 1
+    },
+    {
+      "title": "SEA International School",
+      "slug": "sea-international-school",
+      "section": "institutions",
+      "route": "/institutions/sea-international-school",
+      "sourceUrl": "https://seaedu.ac.in/page/sea-international-school",
+      "contentFile": "content/institutions/sea-international-school.md",
+      "contentLength": 1656,
+      "imageCount": 1
+    },
+    {
+      "title": "SEA Primary & Higher Secondary School",
+      "slug": "sea-primary-higher-secondary-school",
+      "section": "institutions",
+      "route": "/institutions/sea-primary-higher-secondary-school",
+      "sourceUrl": "https://seaedu.ac.in/page/sea-primary-higher-secondary-school",
+      "contentFile": "content/institutions/sea-primary-higher-secondary-school.md",
+      "contentLength": 2042,
+      "imageCount": 1
+    },
+    {
+      "title": "SEA Industrial Training Institute",
+      "slug": "sea-industrial-training-institute",
+      "section": "institutions",
+      "route": "/institutions/sea-industrial-training-institute",
+      "sourceUrl": "https://seaedu.ac.in/page/sea-industrial-training-institute",
+      "contentFile": "content/institutions/sea-industrial-training-institute.md",
+      "contentLength": 620,
+      "imageCount": 1
+    },
+    {
+      "title": "Apply Online",
+      "slug": "apply-online",
+      "section": "admissions",
+      "route": "/admissions/apply-online",
+      "sourceUrl": "https://seaedu.ac.in/page/apply-online",
+      "contentFile": "content/admissions/apply-online.md",
+      "contentLength": 768,
+      "imageCount": 0
+    },
+    {
+      "title": "Admission",
+      "slug": "admission",
+      "section": "admissions",
+      "route": "/admissions/admission",
+      "sourceUrl": "https://seaedu.ac.in/page/admission",
+      "contentFile": "content/admissions/admission.md",
+      "contentLength": 1792,
+      "imageCount": 0
+    },
+    {
+      "title": "Admission Procedure",
+      "slug": "admission-procedure",
+      "section": "admissions",
+      "route": "/admissions/admission-procedure",
+      "sourceUrl": "https://seaedu.ac.in/page/admission-procedure",
+      "contentFile": "content/admissions/admission-procedure.md",
+      "contentLength": 1941,
+      "imageCount": 4
+    },
+    {
+      "title": "Foreign National",
+      "slug": "foreign-national",
+      "section": "admissions",
+      "route": "/admissions/foreign-national",
+      "sourceUrl": "https://seaedu.ac.in/page/foreign-national",
+      "contentFile": "content/admissions/foreign-national.md",
+      "contentLength": 1902,
+      "imageCount": 0
+    },
+    {
+      "title": "Financial Aid",
+      "slug": "financial-aid",
+      "section": "admissions",
+      "route": "/admissions/financial-aid",
+      "sourceUrl": "https://seaedu.ac.in/page/financial-aid",
+      "contentFile": "content/admissions/financial-aid.md",
+      "contentLength": 2670,
+      "imageCount": 0
+    },
+    {
+      "title": "NRI Admission",
+      "slug": "nri-admission",
+      "section": "admissions",
+      "route": "/admissions/nri-admission",
+      "sourceUrl": "https://seaedu.ac.in/page/nri-admission",
+      "contentFile": "content/admissions/nri-admission.md",
+      "contentLength": 2035,
+      "imageCount": 1
+    },
+    {
+      "title": "Campus Infrastructure",
+      "slug": "campus-infrastructure",
+      "section": "campus",
+      "route": "/campus/campus-infrastructure",
+      "sourceUrl": "https://seaedu.ac.in/page/campus-infrastructure",
+      "contentFile": "content/campus/campus-infrastructure.md",
+      "contentLength": 1518,
+      "imageCount": 1
+    },
+    {
+      "title": "Digital Infrastructure",
+      "slug": "digital-infrastructure",
+      "section": "campus",
+      "route": "/campus/digital-infrastructure",
+      "sourceUrl": "https://seaedu.ac.in/page/digital-infrastructure",
+      "contentFile": "content/campus/digital-infrastructure.md",
+      "contentLength": 1236,
+      "imageCount": 12
+    },
+    {
+      "title": "Accommodation & Hostel Facilities",
+      "slug": "accommodation-hostel-facilities",
+      "section": "campus",
+      "route": "/campus/accommodation-hostel-facilities",
+      "sourceUrl": "https://seaedu.ac.in/page/accommodation-hostel-facilities",
+      "contentFile": "content/campus/accommodation-hostel-facilities.md",
+      "contentLength": 1204,
+      "imageCount": 4
+    },
+    {
+      "title": "Sports",
+      "slug": "sports",
+      "section": "campus",
+      "route": "/campus/sports",
+      "sourceUrl": "https://seaedu.ac.in/page/sports",
+      "contentFile": "content/campus/sports.md",
+      "contentLength": 249,
+      "imageCount": 16
+    },
+    {
+      "title": "Placement Overview",
+      "slug": "placement-overview",
+      "section": "placements",
+      "route": "/placements/placement-overview",
+      "sourceUrl": "https://seaedu.ac.in/page/placement-overview",
+      "contentFile": "content/placements/placement-overview.md",
+      "contentLength": 3646,
+      "imageCount": 9
+    },
+    {
+      "title": "Career Advancement Cell",
+      "slug": "career-advancement-cell",
+      "section": "placements",
+      "route": "/placements/career-advancement-cell",
+      "sourceUrl": "https://seaedu.ac.in/page/career-advancement-cell",
+      "contentFile": "content/placements/career-advancement-cell.md",
+      "contentLength": 1260,
+      "imageCount": 0
+    },
+    {
+      "title": "Recruiters",
+      "slug": "recruiters",
+      "section": "placements",
+      "route": "/placements/recruiters",
+      "sourceUrl": "https://seaedu.ac.in/page/recruiters",
+      "contentFile": "content/placements/recruiters.md",
+      "contentLength": 81,
+      "imageCount": 15
+    },
+    {
+      "title": "Photo Gallery",
+      "slug": "photo-gallery",
+      "section": "gallery",
+      "route": "/gallery/photo-gallery",
+      "sourceUrl": "https://seaedu.ac.in/page/photo-gallery",
+      "contentFile": "content/gallery/photo-gallery.md",
+      "contentLength": 162,
+      "imageCount": 36
+    },
+    {
+      "title": "Video Gallery",
+      "slug": "video-gallery",
+      "section": "gallery",
+      "route": "/gallery/video-gallery",
+      "sourceUrl": "https://seaedu.ac.in/page/video-gallery",
+      "contentFile": "content/gallery/video-gallery.md",
+      "contentLength": 81,
+      "imageCount": 0
+    },
+    {
+      "title": "Contact Us",
+      "slug": "contact-us",
+      "section": "other",
+      "route": "/other/contact-us",
+      "sourceUrl": "https://seaedu.ac.in/page/contact-us",
+      "contentFile": "content/other/contact-us.md",
+      "contentLength": 562,
+      "imageCount": 0
+    },
+    {
+      "title": "Accreditations",
+      "slug": "accreditations",
+      "section": "other",
+      "route": "/other/accreditations",
+      "sourceUrl": "https://seaedu.ac.in/page/accreditations",
+      "contentFile": "content/other/accreditations.md",
+      "contentLength": 727,
+      "imageCount": 8
+    },
+    {
+      "title": "Brochures",
+      "slug": "brochures",
+      "section": "other",
+      "route": "/other/brochures",
+      "sourceUrl": "https://seaedu.ac.in/page/brochures",
+      "contentFile": "content/other/brochures.md",
+      "contentLength": 676,
+      "imageCount": 13
+    }
+  ]
+}
