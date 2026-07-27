@@ -4,6 +4,8 @@
 > **Purpose**: Frontend competition — rebuild every page with modern design, keep all original content
 > **Prepared by**: Content extraction via Antigravity IDE (automated scraping of all 43 pages)
 
+> **UPDATE (2026-07-22)**: The competition rules changed — **there is no longer a "vanilla JS only" restriction.** Any framework or library is allowed. The live build in `src/` is a **Next.js 15 + React 19 + TypeScript** app (not the Vite/vanilla plan originally described below), using `framer-motion` for scroll-driven 3D and reveal effects. The sections below are kept for historical content/navigation reference, but the "Recommended Tech Stack" and "no frameworks" guidance are superseded.
+
 ---
 
 ## 🚀 Quick Start for Claude Code
@@ -12,8 +14,8 @@
 1. Read this file first (README.md)
 2. Read brand-brief.md for the brand identity
 3. Read site-map.json for the full navigation structure
-4. Initialize a Vite project (vanilla JS + CSS)
-5. Build the redesigned website using content from content/ folder
+4. The app is already a Next.js (App Router) project in src/ — no framework restriction anymore
+5. Build/extend pages using content from content/ folder and local images from public/images/ (not hotlinked from seaedu.ac.in)
 ```
 
 ---
@@ -220,11 +222,12 @@ Home
 5. **Accessibility** — Proper ARIA labels, contrast, keyboard navigation
 6. **Clean semantic HTML** — Proper heading hierarchy, semantic elements
 
-### Recommended Tech Stack
-- **Vite** (vanilla JS mode — fast, no framework overhead)
-- **Vanilla CSS** with CSS Custom Properties for theming
-- **Google Fonts**: Inter (body) + Outfit or Poppins (headings)
-- **No CSS frameworks** — custom CSS impresses judges more
+### Tech Stack (current, post rule-change)
+- **Next.js 15 (App Router) + React 19 + TypeScript** — framework use is now allowed, no restriction
+- Custom CSS with CSS Custom Properties for theming (`globals.css`) — not a CSS framework, kept hand-written
+- `framer-motion` for scroll-driven reveals, 3D tilt, and parallax
+- Self-hosted/Google Fonts: Archivo Black (display) + Manrope (body)
+- Images served locally from `public/images/` — never hotlinked from seaedu.ac.in
 
 ### Design Ideas
 - **Dark/Light mode toggle** with CSS custom properties
