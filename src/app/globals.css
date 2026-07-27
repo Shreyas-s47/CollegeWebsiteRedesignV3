@@ -416,4 +416,4 @@ main { padding-top:88px; }
 .footer-col span { line-height:1.48; }
 .footer-bottom { display:flex; flex-wrap:wrap; gap:8px 18px; justify-content:space-between; margin-top:29px; padding-top:17px; color:rgba(245,237,229,.67); }
 .footer-bottom span:not(:last-child)::after { content:""; border-right:1px solid rgba(245,237,229,.32); margin-left:18px; }
-@media (max-width:800px) { .footer { padding:14vw 6vw 24px; } .footer-bottom { display:grid; gap:7px; } .footer-bottom span::after { display:none; } }
+@media (max-width:800px) { .footer { padding:14vw 6vw 24px; grid-template-columns:1fr; gap:30px; } .footer-bottom { display:grid; gap:7px; } .footer-bottom span::after { display:none; } }

@@ -1,6 +1,7 @@
 # SEA Website — Master Plan (Corrections + Enhancement)
 
-**Last revised:** 2026-07-25
+**Last revised:** 2026-07-26
+**Context:** competition entry, built with the college’s approval. Formal client-style sign-off gates do not apply; factual accuracy still does.
 **Status of this document:** rewritten after a full audit of the code actually in `src/`, the 43 scraped files in `content/`, the live site rendered in a browser at desktop and mobile widths, and a direct query of the Magic UI MCP registry (§5).
 
 This is **not** an enhancement-only document. Section 2 lists defects that exist in the site *right now* and must be fixed before anything new is built. Later sections describe growth work. Where the previous version of this plan disagreed with the built site, the built site won and the plan text has been corrected — every such correction is listed in section 3 so nothing silently drifts again.
@@ -15,11 +16,15 @@ Anyone picking this up should trust this section over memory or older notes.
 `next.config.ts` → `output: "export"`, `trailingSlash: true`, `images.unoptimized: true`.
 **Static export. There is no server, no API route, no database, no CMS.** Anything requiring a runtime (form submission, search API, analytics proxy) needs an external service.
 
-**Routes that exist (7):**
-`/` · `/explore/` · `/campus-life/` · `/about/` · `/admissions/` · `/gallery/` · `/contact/`
+**Routes that exist (24):**
+`/` · `/explore/` · `/explore/[slug]/` ×12 · `/academics/` · `/campus-life/` · `/campus-life/facilities/` · `/placements/` · `/about/` · `/admissions/` · `/admissions/international/` · `/gallery/` · `/contact/` · plus `sitemap.xml` and `robots.txt`
 
 **Components that exist:**
-`site-header` · `footer` · `motion` (Reveal, RevealStagger, RevealItem, RevealList, TiltCard, ScrollParallax, ParallaxPhoto, Counter, Marquee, MagneticLink) · `course-finder` · `crest-shine` · `scroll-timeline` · `lightbox-gallery` · `contact-form` · `newsletter-signup` · `hash-highlight` · `social-icons`
+`site-header` · `mobile-menu` · `search-modal` · `footer` · `motion` (Reveal, RevealStagger, RevealItem, RevealList, TiltCard, ScrollParallax, ParallaxPhoto, Counter, Marquee, MagneticLink) · `hero-parallax` · `programme-directory` · `crest-shine` · `scroll-timeline` · `lightbox-gallery` · `contact-form` · `hash-highlight` · `social-icons`
+
+**Shared behaviour:** `src/lib/use-dialog-behaviour.ts` — Escape, focus trap, focus return, scroll lock, optional arrow-key paging. Used by the mobile menu, search dialog and lightbox. **Any new dialog must use it.**
+
+**Data:** `src/lib/streams.ts` (12 institutions, build-time validated) · `src/lib/programmes.ts` (32 programmes) · `src/lib/search-index.ts` · `src/lib/site.ts` (routes + canonical origin).
 
 **Content registry:** `src/lib/streams.ts` — 6 academic streams covering all 12 institutions. **This is the single source of truth for institution grouping.** Do not create a second one (see §3).
 
@@ -40,7 +45,7 @@ Type: **Archivo Black** (display) + **Manrope** (body), loaded from Google Fonts
 Motion easing: `[0.16, 1, 0.3, 1]`. Micro-interactions ~150–350 ms, section transitions ~400–700 ms.
 `prefers-reduced-motion` is honoured globally at the bottom of `globals.css`.
 
-**Images:** 60 files in `public/images/`, all served locally. Nothing hotlinks `seaedu.ac.in` any more — keep it that way.
+**Images:** 70+ files in `public/images/`, all served locally. Nothing hotlinks `seaedu.ac.in` any more — keep it that way.
 
 ---
 
@@ -351,7 +356,7 @@ Beyond that:
 
 | Risk | Mitigation | Owner |
 | --- | --- | --- |
-| Unverified institutional claims reach production | Approval register with dated review; P0-1 fix first | SEA content/admissions |
+| Unverified or invented claims reach the judged site | Everything traces to `content/`; `source`/`verified` fields in the registry; build-time content guard | Developer |
 | Enquiries silently lost through fake forms | Sprint 1 blocks on a real endpoint or removal | SEA IT + developer |
 | Mobile visitors cannot navigate | P0-2 mobile menu | Developer |
 | Effects grow faster than content | Component work gated behind §6 guardrails; Magic UI assessed and largely rejected | Developer + design |

@@ -7,13 +7,64 @@ import { useDialogBehaviour } from "@/lib/use-dialog-behaviour";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
+/**
+ * Every sub-link must resolve to a DISTINCT, real destination.
+ *
+ * Listing several differently-labelled items that all land on the same page
+ * tells a visitor there are several places to go when there is one — and,
+ * because these were keyed by href, the repeats also produced React duplicate-key
+ * errors. Labels are unique within a group, so they are used as keys.
+ */
 const menuGroups = [
-  { label: "Explore", href: "/explore/", items: [["All institutions", "/explore/"], ["Engineering & Technology", "/explore/#engineering"], ["Management & Commerce", "/explore/#management"], ["Schools & Pre-University", "/explore/#schools"]] },
-  { label: "Academics", href: "/academics/", items: [["Programmes", "/academics/"], ["Value-added programmes", "/academics/"], ["Research centre", "/academics/"]] },
-  { label: "Campus life", href: "/campus-life/", items: [["Campus overview", "/campus-life/"], ["Facilities & hostels", "/campus-life/facilities/"], ["Photo gallery", "/gallery/"]] },
-  { label: "About SEA", href: "/about/", items: [["Our story", "/about/"], ["Leadership", "/about/"], ["Accreditations", "/about/"]] },
-  { label: "Placements", href: "/placements/", items: [["Placement overview", "/placements/"], ["Our recruiters", "/placements/"], ["Career advancement", "/placements/"]] },
-  { label: "Admissions", href: "/admissions/", items: [["How to apply", "/admissions/"], ["Admission procedure", "/admissions/"], ["International admissions", "/admissions/international/"]] },
+  {
+    label: "Explore",
+    href: "/explore/",
+    items: [
+      ["All institutions", "/explore/"],
+      ["Engineering & Technology", "/explore/#engineering-technology"],
+      ["Management & Commerce", "/explore/#management-commerce"],
+      ["Schools & Pre-University", "/explore/#schools"],
+    ],
+  },
+  {
+    label: "Academics",
+    href: "/academics/",
+    items: [
+      ["All programmes", "/academics/"],
+      ["Research centre", "/explore/sea-college-of-research-development-center/"],
+    ],
+  },
+  {
+    label: "Campus life",
+    href: "/campus-life/",
+    items: [
+      ["Campus overview", "/campus-life/"],
+      ["Facilities & hostels", "/campus-life/facilities/"],
+      ["Photo gallery", "/gallery/"],
+    ],
+  },
+  {
+    label: "About SEA",
+    href: "/about/",
+    // Accreditations are rendered on the admissions page, not on /about/.
+    items: [
+      ["Our story & leadership", "/about/"],
+      ["Accreditations", "/admissions/"],
+    ],
+  },
+  {
+    label: "Placements",
+    href: "/placements/",
+    items: [["Placements & Career Advancement Cell", "/placements/"]],
+  },
+  {
+    label: "Admissions",
+    href: "/admissions/",
+    items: [
+      ["How to apply", "/admissions/"],
+      ["International & NRI", "/admissions/international/"],
+    ],
+  },
 ] as const;
 
 export function MobileMenu({
@@ -88,7 +139,7 @@ export function MobileMenu({
                     </div>
                     <AnimatePresence initial={false}>
                       {isOpen && <motion.div className="menu-sub-links" initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.22, ease: EASE }}>
-                        {group.items.map(([label, href]) => <Link href={href} key={href} onClick={close}>{label}<span aria-hidden="true">↗</span></Link>)}
+                        {group.items.map(([label, href]) => <Link href={href} key={label} onClick={close}>{label}<span aria-hidden="true">↗</span></Link>)}
                       </motion.div>}
                     </AnimatePresence>
                   </div>;
