@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer } from "@/components/footer";
-import { Counter, Marquee, Reveal, RevealItem, RevealStagger } from "@/components/motion";
+import { Counter, LogoChip, Marquee, Reveal, RevealItem, RevealStagger } from "@/components/motion";
 
 export const metadata: Metadata = {
   title: "Placements",
@@ -80,10 +80,8 @@ export default function Placements() {
     <section className="recruiters-strip">
       <span className="eyebrow section-index">A SELECTION OF RECRUITERS</span>
       <Marquee>
-        {recruiters.map((src) => (
-          <div className="logo-chip" key={src}>
-            <img src={src} alt="Recruiter logo" width={150} height={78} />
-          </div>
+        {recruiters.map((src, i) => (
+          <LogoChip key={src} src={src} alt="Recruiter logo" index={i} />
         ))}
       </Marquee>
     </section>

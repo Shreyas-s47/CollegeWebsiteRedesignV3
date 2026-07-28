@@ -201,7 +201,7 @@ export function RevealList({
 
 export function Counter({ to, suffix = "", duration = 1.6 }: { to: number; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-80px 0px -80px 0px" });
   const [value, setValue] = useState(0);
 
   useEffect(() => {
@@ -231,6 +231,23 @@ export function Counter({ to, suffix = "", duration = 1.6 }: { to: number; suffi
       <span aria-hidden="true">{value.toLocaleString()}{suffix}</span>
       <span className="sr-only">{to.toLocaleString()}{suffix}</span>
     </span>
+  );
+}
+
+const CHIP_ACCENTS = ["indigo", "orange", "yellow", "green", "purple"] as const;
+
+export function LogoChip({ src, alt, index }: { src: string; alt: string; index: number }) {
+  const accent = CHIP_ACCENTS[index % CHIP_ACCENTS.length];
+  return (
+    <div
+      className="logo-chip"
+      style={{
+        ["--chip-accent" as string]: `var(--${accent})`,
+        ["--chip-rot" as string]: `${index % 2 === 0 ? -2 : 2}deg`,
+      }}
+    >
+      <img src={src} alt={alt} width={150} height={78} />
+    </div>
   );
 }
 

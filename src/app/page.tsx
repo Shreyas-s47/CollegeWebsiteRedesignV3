@@ -2,7 +2,7 @@ import Link from "next/link";
 import { CrestShine } from "@/components/crest-shine";
 import { Footer } from "@/components/footer";
 import { HeroParallax } from "@/components/hero-parallax";
-import { Counter, Marquee, Reveal, RevealItem, RevealStagger, ScrollParallax, TiltCard } from "@/components/motion";
+import { Counter, LogoChip, Marquee, Reveal, RevealItem, RevealStagger, ScrollParallax, TiltCard } from "@/components/motion";
 import { streams } from "@/lib/streams";
 
 const leaders = [
@@ -46,7 +46,7 @@ export default function Home() {
     </section>
     <section className="directions-section">
       <Reveal className="section-heading"><span className="eyebrow">02 / SIX STREAMS, ONE CAMPUS</span><h2>Every institution.<br />Clearly grouped.</h2><p>Twelve real institutions, organised into six academic streams — pick the one that fits.</p></Reveal>
-      <RevealStagger className="direction-grid">{streams.map((stream) => <RevealItem key={stream.slug}><TiltCard><Link href={`/explore/#${stream.slug}`} className={`direction-card ${stream.color}`} style={{ backgroundImage: `linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.55)), url(${stream.photo})` }}><span>{stream.institutions.length} institution{stream.institutions.length > 1 ? "s" : ""}</span><b>{stream.title}</b><p>{stream.tagline}</p><i>↗</i></Link></TiltCard></RevealItem>)}</RevealStagger>
+      <RevealStagger className="direction-grid">{streams.map((stream) => <RevealItem key={stream.slug}><TiltCard className="direction-tilt"><Link href={`/explore/#${stream.slug}`} className={`direction-card ${stream.color}`} style={{ backgroundImage: `linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.55)), url(${stream.photo})` }}><span>{stream.institutions.length} institution{stream.institutions.length > 1 ? "s" : ""}</span><b>{stream.title}</b><p>{stream.tagline}</p><i>↗</i></Link></TiltCard></RevealItem>)}</RevealStagger>
     </section>
     <section className="image-story">
       <ScrollParallax range={70}><div className="campus-photo" style={{ backgroundImage: "url(/images/about/campus-img.jpg)" }} role="img" aria-label="SEA campus gardens" /></ScrollParallax>
@@ -59,7 +59,7 @@ export default function Home() {
     </section>
     <section className="recruiters-strip">
       <span className="eyebrow section-index">05 / WHERE OUR GRADUATES GO</span>
-      <Marquee>{recruiters.map((src) => <div className="logo-chip" key={src}><img src={src} alt="Recruiter logo" width={150} height={78} /></div>)}</Marquee>
+      <Marquee>{recruiters.map((src, i) => <LogoChip key={src} src={src} alt="Recruiter logo" index={i} />)}</Marquee>
     </section>
     <Reveal><section className="admission-banner"><span>YOUR NEXT CHAPTER<br />STARTS HERE</span><Link href="/admissions/">Explore admissions <i>↗</i></Link></section></Reveal>
     <Footer />

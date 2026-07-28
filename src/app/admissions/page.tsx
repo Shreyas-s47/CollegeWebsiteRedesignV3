@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Fragment } from "react";
 import { Footer } from "@/components/footer";
-import { Marquee, Reveal, RevealItem, RevealList, RevealStagger } from "@/components/motion";
+import { LogoChip, Marquee, Reveal, RevealItem, RevealList, RevealStagger } from "@/components/motion";
 import { ScrollTimeline } from "@/components/scroll-timeline";
 
 const steps = [["01", "Say hello", "Begin with the online or offline application form and tell us a little about yourself."], ["02", "Let's talk", "Our admissions team schedules an interview to understand your interests and aspirations."], ["03", "Share your story", "Submit the academic records and documents required for the programme you choose."], ["04", "Make it official", "After review, the admissions committee shares the decision and next steps."]];
@@ -40,7 +40,7 @@ export default function Admissions() {
     </section>
     <section className="accreditation-strip">
       <span className="eyebrow section-index">RECOGNISED &amp; ACCREDITED BY</span>
-      <Marquee>{accreditations.map((src) => <div className="logo-chip" key={src}><img src={src} alt="Accrediting body logo" width={150} height={78} /></div>)}</Marquee>
+      <Marquee>{accreditations.map((src, i) => <LogoChip key={src} src={src} alt="Accrediting body logo" index={i} />)}</Marquee>
     </section>
 
     <section className="brochure-section">

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { PageTransition } from "@/components/page-transition";
 import { SiteHeader } from "@/components/site-header";
 
 const SITE_NAME = "SEA Group of Institutions";
@@ -33,7 +34,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <a className="skip-link" href="#main-content">Skip to main content</a>
         <SiteHeader />
-        <main id="main-content" tabIndex={-1}>{children}</main>
+        <main id="main-content" tabIndex={-1}>
+          <PageTransition>{children}</PageTransition>
+        </main>
       </body>
     </html>
   );
