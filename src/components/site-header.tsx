@@ -34,10 +34,8 @@ export function SiteHeader() {
   return (
     <header className={`site-header${condensed ? " is-condensed" : ""}`}>
       <Link href="/" className="wordmark" aria-label="SEA Group of Institutions home">
-        <div className="wordmark-badge">
-          <img src="/images/crest.png" alt="" aria-hidden="true" className="wordmark-mark" width={56} height={56} />
-          <WordmarkText />
-        </div>
+        <img src="/images/crest.png" alt="" aria-hidden="true" className="wordmark-mark" width={52} height={52} />
+        <WordmarkText />
       </Link>
       <nav aria-label="Main navigation">
         {links.map(([label, href]) => (
