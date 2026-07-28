@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { MobileMenu } from "./mobile-menu";
 import { SearchModal } from "./search-modal";
 import { MagneticLink } from "./motion";
+import { WordmarkText } from "./wordmark";
 
 const links = [
   ["Explore", "/explore/"],
@@ -33,7 +34,8 @@ export function SiteHeader() {
   return (
     <header className={`site-header${condensed ? " is-condensed" : ""}`}>
       <Link href="/" className="wordmark" aria-label="SEA Group of Institutions home">
-        <img src="/images/logo.png" alt="SEA Group of Institutions" className="wordmark-mark" width={284} height={89} />
+        <img src="/images/crest.png" alt="" aria-hidden="true" className="wordmark-mark" width={46} height={46} />
+        <WordmarkText />
       </Link>
       <nav aria-label="Main navigation">
         {links.map(([label, href]) => (
