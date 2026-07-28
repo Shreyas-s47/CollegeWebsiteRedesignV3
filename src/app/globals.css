@@ -46,14 +46,14 @@
 
 /* === Brand grain + wordmark upgrade === */
 body::before { content:""; position:fixed; inset:0; z-index:999; pointer-events:none; opacity:.035; mix-blend-mode:multiply; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
-.wordmark { display:flex; align-items:center; gap:12px; text-decoration:none; }
-.wordmark-mark { height:46px; width:auto; display:block; object-fit:contain; transition:height .32s ease; }
-
-/* === Wordmark text (logo mark + text separated) === */
-.wordmark-text { display:flex; flex-direction:column; line-height:0.95; justify-content:center; }
-.wordmark-sea { display:flex; font-family:'Arial Black', 'Archivo Black', 'Trebuchet MS', sans-serif; font-weight:900; font-size:26px; letter-spacing:-0.01em; color:#d03816; transition:font-size .32s ease; }
+/* === Texas State Style Morphing Badge Logo === */
+.wordmark { display:inline-flex; align-items:center; text-decoration:none; z-index:12; position:relative; }
+.wordmark-badge { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; background:#ffffff; padding:16px 22px 14px; min-width:154px; border:1.5px solid var(--ink); border-top:none; border-radius:0 0 16px 16px; box-shadow:0 12px 32px rgba(18,18,18,.15), 0 2px 6px rgba(0,0,0,.04); transition:all .42s cubic-bezier(.16,1,.3,1); position:relative; top:-15px; margin-bottom:-15px; }
+.wordmark-mark { height:56px; width:56px; object-fit:contain; display:block; margin-bottom:8px; margin-right:0; transition:all .42s cubic-bezier(.16,1,.3,1); }
+.wordmark-text { display:flex; flex-direction:column; line-height:0.95; justify-content:center; align-items:center; text-align:center; transition:all .42s cubic-bezier(.16,1,.3,1); }
+.wordmark-sea { display:flex; font-family:'Arial Black', 'Archivo Black', 'Trebuchet MS', sans-serif; font-weight:900; font-size:26px; letter-spacing:-0.01em; color:#d03816; justify-content:center; transition:all .42s cubic-bezier(.16,1,.3,1); }
 .wordmark-sea span { color:#d03816; }
-.wordmark-subtitle { margin-top:2px; font-family:Arial, 'Helvetica Neue', sans-serif; font-weight:900; font-size:9.5px; letter-spacing:0.01em; color:#0b4f8c; text-transform:uppercase; white-space:nowrap; transition:font-size .32s ease, opacity .32s ease; }
+.wordmark-subtitle { margin-top:3px; font-family:Arial, 'Helvetica Neue', sans-serif; font-weight:900; font-size:9px; letter-spacing:0.02em; color:#0b4f8c; text-transform:uppercase; white-space:nowrap; text-align:center; transition:all .42s cubic-bezier(.16,1,.3,1); }
 
 /* === Tilt cards with pointer-follow glow === */
 .tilt-card { position:relative; transform-style:preserve-3d; will-change:transform; min-width:0; }
@@ -375,11 +375,12 @@ body::before { content:""; position:fixed; inset:0; z-index:999; pointer-events:
 
 /* === Editorial navigation and home hero refresh === */
 .site-header { position:fixed; inset:0 0 auto; width:100%; height:88px; padding:15px 3.6vw; transition:height .32s ease, padding .32s ease, box-shadow .32s ease; }
-main { padding-top:88px; }
 .site-header.is-condensed { height:64px; padding-block:9px; box-shadow:0 8px 24px rgba(18,18,18,.12); }
-.site-header.is-condensed .wordmark-mark { height:34px; }
-.site-header.is-condensed .wordmark-sea { font-size:18px; }
-.site-header.is-condensed .wordmark-subtitle { font-size:7px; opacity:.85; }
+.site-header.is-condensed .wordmark-badge { flex-direction:row; align-items:center; justify-content:flex-start; text-align:left; background:transparent; padding:0 4px; min-width:auto; border:1.5px solid transparent; border-radius:0; box-shadow:none; top:0; margin-bottom:0; }
+.site-header.is-condensed .wordmark-mark { height:38px; width:38px; margin-bottom:0; margin-right:10px; }
+.site-header.is-condensed .wordmark-text { align-items:flex-start; text-align:left; }
+.site-header.is-condensed .wordmark-sea { font-size:19px; justify-content:flex-start; }
+.site-header.is-condensed .wordmark-subtitle { font-size:7.5px; margin-top:1px; text-align:left; opacity:.9; }
 .site-header.is-condensed > nav { opacity:0; width:0; margin:0; overflow:hidden; pointer-events:none; gap:0; }
 .site-header.is-condensed .apply-button { display:none; }
 .site-header > .search-trigger { margin-left:auto; }
