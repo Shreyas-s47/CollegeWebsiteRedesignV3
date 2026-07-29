@@ -374,7 +374,7 @@ body::before { content:""; position:fixed; inset:0; z-index:999; pointer-events:
  }
 
 /* === Editorial navigation and home hero refresh === */
-.site-header { position:fixed; inset:0 0 auto; width:100%; height:88px; padding:15px 3.6vw; background:rgba(245,237,229,.95); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1.5px solid var(--line); transition:all .4s cubic-bezier(.16,1,.3,1); z-index:100; }
+.site-header { position:fixed; inset:0 0 auto; width:100%; height:88px; padding:15px 3.6vw; background:rgba(245,237,229,.95); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-color:rgba(74,10,129,.72); border-style:ridge; border-width:1.5px; transition:all .4s cubic-bezier(.16,1,.3,1); z-index:100; }
 .site-header.is-condensed { height:60px; padding-block:8px; background:rgba(245,237,229,.88); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow:0 8px 30px rgba(18,18,18,.08); }
 .site-header.is-condensed .wordmark { gap:10px; }
 .site-header.is-condensed .wordmark-mark { height:36px; }
@@ -390,7 +390,7 @@ body::before { content:""; position:fixed; inset:0; z-index:999; pointer-events:
 .menu-toggle-text { white-space:nowrap; }
 .menu-toggle:hover { color:var(--indigo); }
 .hero { min-height:calc(100vh - 88px + 75px); padding:5.25vw 6.4vw 3vw; }
-.hero-copy h1 { font-size:clamp(57px,6.6vw,112px); }
+.hero-copy h1 { border-color:rgba(107,10,160,1); border-width:1px; font-size:clamp(57px,6.6vw,112px); }
 .hero-editorial-scene { background:#183d67; box-shadow:none; border-radius:0; margin:0 0 120px; min-height:600px; }
 .hero-editorial-image { position:absolute; inset:0; background:linear-gradient(180deg,rgba(10,21,37,.04),rgba(10,21,37,.52)),url('/images/about/campus-img.jpg') center/cover; transform:scale(1.01); animation:editorial-settle 1.15s cubic-bezier(.16,1,.3,1) both; }
 .hero-editorial-caption { position:absolute; z-index:2; left:28px; bottom:25px; display:grid; gap:5px; color:white; text-transform:uppercase; letter-spacing:.1em; }
