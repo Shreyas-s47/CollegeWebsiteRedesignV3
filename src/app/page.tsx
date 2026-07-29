@@ -2,7 +2,7 @@ import Link from "next/link";
 import { CrestShine } from "@/components/crest-shine";
 import { Footer } from "@/components/footer";
 import { HeroParallax } from "@/components/hero-parallax";
-import { Counter, LogoChip, Marquee, Reveal, RevealItem, RevealStagger, ScrollParallax, TiltCard } from "@/components/motion";
+import { Counter, LogoChip, MagneticLink, Marquee, Reveal, RevealItem, RevealStagger, ScrollParallax, TiltCard } from "@/components/motion";
 import { streams } from "@/lib/streams";
 
 const leaders = [
@@ -42,7 +42,11 @@ export default function Home() {
     </section>
     <section className="manifesto split-section">
       <p className="section-index">01 / THE SEA WAY</p>
-      <Reveal><h2>Education should feel<br />like <em>possibility.</em></h2><p className="large-copy">S.E.A. Education Trust was established to make academic excellence accessible to every section of society. Today, it is a place where ambitions find their direction.</p><Link href="/campus-life/" className="text-link">Step inside the campus ↗</Link></Reveal>
+      <RevealStagger className="manifesto-copy">
+        <RevealItem><h2>Education should feel<br />like <em>possibility.</em></h2></RevealItem>
+        <RevealItem><p className="large-copy">S.E.A. Education Trust was established to make academic excellence accessible to every section of society. Today, it is a place where ambitions find their direction.</p></RevealItem>
+        <RevealItem><Link href="/campus-life/" className="text-link">Step inside the campus ↗</Link></RevealItem>
+      </RevealStagger>
     </section>
     <section className="directions-section">
       <Reveal className="section-heading"><span className="eyebrow">02 / SIX STREAMS, ONE CAMPUS</span><h2>Every institution.<br />Clearly grouped.</h2><p>Twelve real institutions, organised into six academic streams — pick the one that fits.</p></Reveal>
@@ -61,7 +65,7 @@ export default function Home() {
       <span className="eyebrow section-index">05 / WHERE OUR GRADUATES GO</span>
       <Marquee>{recruiters.map((src, i) => <LogoChip key={src} src={src} alt="Recruiter logo" index={i} />)}</Marquee>
     </section>
-    <Reveal><section className="admission-banner"><span>YOUR NEXT CHAPTER<br />STARTS HERE</span><Link href="/admissions/">Explore admissions <i>↗</i></Link></section></Reveal>
+    <Reveal><section className="admission-banner"><span>YOUR NEXT CHAPTER<br />STARTS HERE</span><MagneticLink href="/admissions/" className="admission-link">Explore admissions <i>↗</i></MagneticLink></section></Reveal>
     <Footer />
   </>;
 }
