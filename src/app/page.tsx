@@ -2,13 +2,21 @@ import Link from "next/link";
 import { CrestShine } from "@/components/crest-shine";
 import { Footer } from "@/components/footer";
 import { HeroParallax } from "@/components/hero-parallax";
-import { Counter, LogoChip, Marquee, Reveal, RevealItem, RevealStagger, ScrollParallax, TiltCard } from "@/components/motion";
-import { streams } from "@/lib/streams";
+import { Counter, LogoChip, Marquee, Reveal, RevealItem, RevealStagger } from "@/components/motion";
+import { Photo } from "@/components/photo";
+import { StreamExplorer } from "@/components/stream-explorer";
 
 const leaders = [
-  { name: "Sri A. Krishnappa", role: "Founder, S.E.A.E.T.", photo: "/images/leadership/founder.jpg", quote: "We believe education is the bedrock of all transformation and progress." },
-  { name: "Mrs. Manjula A Krishnappa", role: "Chairman, SEA Group of Institutions", photo: "/images/leadership/chairman.jpg", quote: "Success is not a one-shot process — it is continuous improvement after every failure." },
-  { name: "Prof(Dr) K Viyyanna Rao", role: "Director, SEA Group of Institutions", photo: "/images/leadership/director.jpg", quote: "Our aim is to make students autonomous, socially responsible, and ready for the world." },
+  { name: "Sri A. Krishnappa", role: "Founder, S.E.A.E.T.", photoName: "leadership/founder", quote: "We believe education is the bedrock of all transformation and progress." },
+  { name: "Mrs. Manjula A Krishnappa", role: "Chairman, SEA Group of Institutions", photoName: "leadership/chairman", quote: "Success is not a one-shot process — it is continuous improvement after every failure." },
+  { name: "Prof(Dr) K Viyyanna Rao", role: "Director, SEA Group of Institutions", photoName: "leadership/director", quote: "Our aim is to make students autonomous, socially responsible, and ready for the world." },
+];
+
+const campusFacts = [
+  { label: "Central library", detail: "Reading halls open through exam season" },
+  { label: "Science & engineering labs", detail: "Equipped across all twelve institutions" },
+  { label: "Residential hostels", detail: "Separate blocks, on-campus" },
+  { label: "Sports grounds", detail: "Athletics, courts and a play field" },
 ];
 
 const recruiters = Array.from({ length: 12 }, (_, i) => `/images/recruiters/r${i + 1}.jpg`);
@@ -16,22 +24,22 @@ const recruiters = Array.from({ length: 12 }, (_, i) => `/images/recruiters/r${i
 export default function Home() {
   return <>
     <section className="hero hero-parallax">
-      <div className="hero-copy">
-        <div className="hero-crest-row">
+      <RevealStagger className="hero-copy" step={0.12}>
+        <RevealItem className="hero-crest-row">
           <CrestShine size={44} />
           <span className="eyebrow">SEA GROUP OF INSTITUTIONS / BENGALURU</span>
-        </div>
-        <h1>One campus.<br />Twelve <em>institutions.</em></h1>
-        <p>From engineering to nursing to law — find the programme that&rsquo;s actually you.</p>
-        <div className="hero-actions">
+        </RevealItem>
+        <RevealItem><h1>One Bengaluru campus.<br />A future built <em>around you.</em></h1></RevealItem>
+        <RevealItem><p>Explore engineering, management, nursing, law, education and schools — then compare programmes, eligibility and admission routes.</p></RevealItem>
+        <RevealItem className="hero-actions">
           <Link href="/academics/" className="primary-cta">
-            Find a programme <span aria-hidden="true">↗</span>
+            Explore programmes <span aria-hidden="true">↗</span>
           </Link>
-          <Link href="/explore/" className="ghost-cta">
-            Browse all 12 institutions
+          <Link href="/admissions/" className="ghost-cta">
+            Admissions 2026–27
           </Link>
-        </div>
-      </div>
+        </RevealItem>
+      </RevealStagger>
       <HeroParallax />
       <div className="hero-stamp">
         <div><b><Counter to={12} /></b><span>Institutions</span></div>
@@ -42,19 +50,31 @@ export default function Home() {
     </section>
     <section className="manifesto split-section">
       <p className="section-index">01 / THE SEA WAY</p>
-      <Reveal><h2>Education should feel<br />like <em>possibility.</em></h2><p className="large-copy">S.E.A. Education Trust was established to make academic excellence accessible to every section of society. Today, it is a place where ambitions find their direction.</p><Link href="/campus-life/" className="text-link">Step inside the campus ↗</Link></Reveal>
+      <Reveal><h2 className="editorial-heading">Education should feel<br />like <em>possibility.</em></h2><p className="large-copy editorial-copy">S.E.A. Education Trust was established to make academic excellence accessible to every section of society. Today, it is a place where ambitions find their direction.</p><Link href="/campus-life/" className="text-link">Step inside the campus ↗</Link></Reveal>
     </section>
-    <section className="directions-section">
-      <Reveal className="section-heading"><span className="eyebrow">02 / SIX STREAMS, ONE CAMPUS</span><h2>Every institution.<br />Clearly grouped.</h2><p>Twelve real institutions, organised into six academic streams — pick the one that fits.</p></Reveal>
-      <RevealStagger className="direction-grid">{streams.map((stream) => <RevealItem key={stream.slug}><TiltCard className="direction-tilt"><Link href={`/explore/#${stream.slug}`} className={`direction-card ${stream.color}`} style={{ backgroundImage: `linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.55)), url(${stream.photo})` }}><span>{stream.institutions.length} institution{stream.institutions.length > 1 ? "s" : ""}</span><b>{stream.title}</b><p>{stream.tagline}</p><i>↗</i></Link></TiltCard></RevealItem>)}</RevealStagger>
+    <section className="streams-intro">
+      <Reveal className="section-heading"><span className="eyebrow">02 / SIX STREAMS, TWELVE INSTITUTIONS</span><h2>Pick a stream.<br />See who&rsquo;s in it.</h2><p>Every institution on campus, grouped into six academic streams — select one to see its programmes.</p></Reveal>
+      <StreamExplorer />
     </section>
     <section className="image-story">
-      <ScrollParallax range={70}><div className="campus-photo" style={{ backgroundImage: "url(/images/about/campus-img.jpg)" }} role="img" aria-label="SEA campus gardens" /></ScrollParallax>
-      <div className="story-panel"><Reveal><span className="eyebrow">03 / THE CAMPUS</span><h2>Room to think.<br />Space to become.</h2><p>The SEA campus blends landscaped gardens, modern labs, a central library, sports facilities and residential spaces into a learning environment that extends beyond the classroom.</p><p className="campus-fact"><b><Counter to={50} suffix="+" /></b> <span>students from different nationalities study on this campus</span></p></Reveal></div>
+      <div className="campus-photo-frame">
+        <Photo name="about/campus" compact={800} full={1800} alt="SEA campus gardens" className="campus-photo" sizes="(max-width: 800px) 100vw, 55vw" />
+      </div>
+      <div className="story-panel">
+        <Reveal>
+          <span className="eyebrow">03 / THE CAMPUS</span>
+          <h2 className="editorial-heading">Room to think.<br />Space to become.</h2>
+          <p className="editorial-copy">The SEA campus blends landscaped gardens, modern labs, a central library, sports facilities and residential spaces into a learning environment that extends beyond the classroom.</p>
+          <p className="campus-fact"><b><Counter to={50} suffix="+" /></b> <span>students from different nationalities study on this campus</span></p>
+          <ul className="campus-quick-facts">
+            {campusFacts.map((f) => <li key={f.label}><b>{f.label}</b><span>{f.detail}</span></li>)}
+          </ul>
+        </Reveal>
+      </div>
     </section>
     <section className="leaders-section">
-      <Reveal className="section-heading" style={{ padding: "6vw 6.4vw 0" }}><span className="eyebrow">04 / WHO GUIDES SEA</span><h2>Voices behind<br />the vision.</h2><p>Meet the people shaping SEA's direction — and read their full messages on the About page.</p></Reveal>
-      <RevealStagger className="leaders-grid">{leaders.map((leader) => <RevealItem key={leader.name}><TiltCard className="leader-card" max={5}><div className="leader-photo" style={{ backgroundImage: `url(${leader.photo})` }} /><div><span>LEADERSHIP</span><h3>{leader.name}</h3><p className="role">{leader.role}</p><p className="quote">&ldquo;{leader.quote}&rdquo;</p></div></TiltCard></RevealItem>)}</RevealStagger>
+      <Reveal className="section-heading" style={{ padding: "6vw 6.4vw 0" }}><span className="eyebrow">04 / WHO GUIDES SEA</span><h2 className="editorial-heading">Voices behind<br />the vision.</h2><p>Meet the people shaping SEA&rsquo;s direction — and read their full messages on the About page.</p></Reveal>
+      <RevealStagger className="leaders-grid">{leaders.map((leader) => <RevealItem key={leader.name}><div className="leader-card"><Photo name={leader.photoName} compact={480} full={900} alt={leader.name} className="leader-photo" sizes="(max-width: 800px) 90vw, 30vw" /><div><span>LEADERSHIP</span><h3>{leader.name}</h3><p className="role">{leader.role}</p><p className="quote editorial-copy">&ldquo;{leader.quote}&rdquo;</p></div></div></RevealItem>)}</RevealStagger>
       <div style={{ padding: "0 6.4vw 6vw", textAlign: "right" }}><Link href="/about/" className="text-link">Read full messages ↗</Link></div>
     </section>
     <section className="recruiters-strip">

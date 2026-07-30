@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { MotionProvider } from "@/components/motion-provider";
 import { PageTransition } from "@/components/page-transition";
 import { SiteHeader } from "@/components/site-header";
 
@@ -33,10 +34,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en-IN">
       <body>
         <a className="skip-link" href="#main-content">Skip to main content</a>
-        <SiteHeader />
-        <main id="main-content" tabIndex={-1}>
-          <PageTransition>{children}</PageTransition>
-        </main>
+        <MotionProvider>
+          <SiteHeader />
+          <main id="main-content" tabIndex={-1}>
+            <PageTransition>{children}</PageTransition>
+          </main>
+        </MotionProvider>
       </body>
     </html>
   );

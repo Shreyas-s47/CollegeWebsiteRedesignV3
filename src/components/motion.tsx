@@ -8,6 +8,26 @@ const MotionLink = motion.create(Link);
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
+/**
+ * MotionConfig(reducedMotion="user") in layout.tsx handles every
+ * `animate`/`whileInView`-driven transform automatically. It does NOT reach
+ * values derived from `useScroll`/`useTransform` — those are plain JS math
+ * re-run on scroll, not a Framer "animation" — so anything that maps scroll
+ * position to a transform (parallax) has to check this explicitly and hold
+ * still instead.
+ */
+export function usePrefersReducedMotion() {
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduced(mql.matches);
+    const onChange = () => setReduced(mql.matches);
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
+  return reduced;
+}
+
 export function Reveal({
   children,
   delay = 0,
@@ -150,7 +170,16 @@ export function ParallaxPhoto({
 
 function useParallaxY(ref: React.RefObject<HTMLDivElement | null>, range: number) {
   const scrollProgress = useMotionValue(0);
+  const reduced = usePrefersReducedMotion();
+
   useEffect(() => {
+    // Skip the scroll listener entirely rather than just clamping its output —
+    // no point tracking scroll position 60x/sec for a value we're about to
+    // discard, and it keeps devtools' "why is this re-rendering" honest.
+    if (reduced) {
+      scrollProgress.set(0.5); // → useTransform below outputs 0
+      return;
+    }
     function update() {
       const el = ref.current;
       if (!el) return;
@@ -166,8 +195,9 @@ function useParallaxY(ref: React.RefObject<HTMLDivElement | null>, range: number
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, [ref, scrollProgress]);
-  return useTransform(scrollProgress, [0, 1], [-range, range]);
+  }, [ref, scrollProgress, reduced]);
+
+  return useTransform(scrollProgress, [0, 1], reduced ? [0, 0] : [-range, range]);
 }
 
 export function RevealList({
@@ -251,17 +281,20 @@ export function LogoChip({ src, alt, index }: { src: string; alt: string; index:
   );
 }
 
+/**
+ * Pure CSS keyframe loop rather than a Framer `animate` tween. Two reasons:
+ * `animation-play-state:paused` gives hover/focus pausing for free with no JS
+ * state, and it inherits the site's blanket
+ * `@media (prefers-reduced-motion: reduce) { *{ animation-duration:.01ms! } }`
+ * rule automatically — a JS/RAF-driven tween would need its own opt-out.
+ */
 export function Marquee({ children, duration = 26 }: { children: ReactNode; duration?: number }) {
   return (
-    <div className="marquee">
-      <motion.div
-        className="marquee-track"
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{ repeat: Infinity, ease: "linear", duration }}
-      >
+    <div className="marquee" tabIndex={0} role="group" aria-label="Recruiter logos, scrolling">
+      <div className="marquee-track" style={{ ["--marquee-duration" as string]: `${duration}s` }}>
         {children}
         {children}
-      </motion.div>
+      </div>
     </div>
   );
 }
