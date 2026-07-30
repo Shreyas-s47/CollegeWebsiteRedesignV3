@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { CrestShine } from "@/components/crest-shine";
 import { Footer } from "@/components/footer";
-import { HeroParallax } from "@/components/hero-parallax";
-import { Counter, LogoChip, MagneticLink, Marquee, Reveal, RevealItem, RevealStagger, ScrollParallax, TiltCard } from "@/components/motion";
+import { HomeHero } from "@/components/home-hero";
+import { Counter, LogoChip, MagneticLink, Marquee, PointerGlow, Reveal, RevealItem, RevealStagger, ScrollParallax, TiltCard } from "@/components/motion";
 import { streams } from "@/lib/streams";
 
 const leaders = [
@@ -15,31 +14,7 @@ const recruiters = Array.from({ length: 12 }, (_, i) => `/images/recruiters/r${i
 
 export default function Home() {
   return <>
-    <section className="hero hero-parallax">
-      <div className="hero-copy">
-        <div className="hero-crest-row">
-          <CrestShine size={44} />
-          <span className="eyebrow">SEA GROUP OF INSTITUTIONS / BENGALURU</span>
-        </div>
-        <h1>One campus.<br />Twelve <em>institutions.</em></h1>
-        <p>From engineering to nursing to law — find the programme that&rsquo;s actually you.</p>
-        <div className="hero-actions">
-          <Link href="/academics/" className="primary-cta">
-            Find a programme <span aria-hidden="true">↗</span>
-          </Link>
-          <Link href="/explore/" className="ghost-cta">
-            Browse all 12 institutions
-          </Link>
-        </div>
-      </div>
-      <HeroParallax />
-      <div className="hero-stamp">
-        <div><b><Counter to={12} /></b><span>Institutions</span></div>
-        <div><b><Counter to={160} suffix="+" /></b><span>Recruiters</span></div>
-        <div><b><Counter to={2000} suffix="+" /></b><span>Alumni network</span></div>
-        <div><b><Counter to={26} /></b><span>Years since 2000</span></div>
-      </div>
-    </section>
+    <HomeHero />
     <section className="manifesto split-section">
       <p className="section-index">01 / THE SEA WAY</p>
       <RevealStagger className="manifesto-copy">
@@ -65,7 +40,7 @@ export default function Home() {
       <span className="eyebrow section-index">05 / WHERE OUR GRADUATES GO</span>
       <Marquee>{recruiters.map((src, i) => <LogoChip key={src} src={src} alt="Recruiter logo" index={i} />)}</Marquee>
     </section>
-    <Reveal><section className="admission-banner"><span>YOUR NEXT CHAPTER<br />STARTS HERE</span><MagneticLink href="/admissions/" className="admission-link">Explore admissions <i>↗</i></MagneticLink></section></Reveal>
+    <Reveal><PointerGlow className="admission-banner"><span>YOUR NEXT CHAPTER<br />STARTS HERE</span><MagneticLink href="/admissions/" className="admission-link">Explore admissions <i>↗</i></MagneticLink></PointerGlow></Reveal>
     <Footer />
   </>;
 }

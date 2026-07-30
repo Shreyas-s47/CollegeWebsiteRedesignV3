@@ -39,13 +39,13 @@ export default function CampusLife() {
     </RevealStagger>
     <section className="placement-pulse">
       <Reveal><span className="eyebrow">PLACEMENT PULSE</span><h2>Future-ready<br />looks good on you.</h2></Reveal>
-      <div>
-        <b><Counter to={23} suffix="%" /><small>salary hike, YoY</small></b>
-        <b><Counter to={160} suffix="+" /><small>recruiters</small></b>
-        <b><Counter to={80} suffix="+" /><small>internship companies</small></b>
-        <b><Counter to={2000} suffix="+" /><small>alumni network</small></b>
-        <b><Counter to={10} suffix="+" /><small>campus start-ups</small></b>
-      </div>
+      <RevealStagger className="highlight-grid" step={0.06}>
+        <RevealItem><div className="highlight-card"><b><Counter to={23} suffix="%" /></b><span>Salary hike, YoY</span></div></RevealItem>
+        <RevealItem><div className="highlight-card"><b><Counter to={160} suffix="+" /></b><span>Recruiters</span></div></RevealItem>
+        <RevealItem><div className="highlight-card"><b><Counter to={80} suffix="+" /></b><span>Internship companies</span></div></RevealItem>
+        <RevealItem><div className="highlight-card"><b><Counter to={2000} suffix="+" /></b><span>Alumni network</span></div></RevealItem>
+        <RevealItem><div className="highlight-card"><b><Counter to={10} suffix="+" /></b><span>Campus start-ups</span></div></RevealItem>
+      </RevealStagger>
     </section>
     <Reveal>
       <section className="split-cta">

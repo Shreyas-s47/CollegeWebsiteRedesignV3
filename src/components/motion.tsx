@@ -241,6 +241,28 @@ export function Counter({ to, suffix = "", duration = 1.6 }: { to: number; suffi
   );
 }
 
+export function PointerGlow({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  const reducedMotion = useReducedMotion();
+
+  function handleMove(e: PointerEvent<HTMLElement>) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty("--mx", `${((e.clientX - rect.left) / rect.width) * 100}%`);
+    e.currentTarget.style.setProperty("--my", `${((e.clientY - rect.top) / rect.height) * 100}%`);
+  }
+
+  return (
+    <section className={className} onPointerMove={reducedMotion ? undefined : handleMove}>
+      {children}
+    </section>
+  );
+}
+
 const CHIP_ACCENTS = ["indigo", "orange", "yellow", "green", "purple"] as const;
 
 export function LogoChip({ src, alt, index }: { src: string; alt: string; index: number }) {
