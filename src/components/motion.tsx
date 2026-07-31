@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useInView, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useRef, useState, type CSSProperties, type PointerEvent, type ReactNode } from "react";
 
@@ -41,12 +41,14 @@ export function Reveal({
   className?: string;
   style?: CSSProperties;
 }) {
+  const reducedMotion = useReducedMotion();
+
   return (
     <motion.div
       className={className}
       style={style}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={reducedMotion ? false : { opacity: 0, y }}
+      whileInView={reducedMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-12% 0px -12% 0px" }}
       transition={{ duration: 0.8, delay, ease: EASE }}
     >
@@ -64,11 +66,13 @@ export function RevealStagger({
   className?: string;
   step?: number;
 }) {
+  const reducedMotion = useReducedMotion();
+
   return (
     <motion.div
       className={className}
-      initial="hidden"
-      whileInView="show"
+      initial={reducedMotion ? false : "hidden"}
+      whileInView={reducedMotion ? undefined : "show"}
       viewport={{ once: true, margin: "-12% 0px -12% 0px" }}
       variants={{ hidden: {}, show: { transition: { staggerChildren: step } } }}
     >
@@ -116,13 +120,15 @@ export function TiltCard({
     py.set((e.clientY - rect.top) / rect.height);
   }
 
+  const reducedMotion = useReducedMotion();
+
   return (
     <motion.div
       id={id}
       className={`tilt-card ${className ?? ""}`}
-      style={{ ...style, rotateX, rotateY, scale, ["--glow-x" as string]: glowX, ["--glow-y" as string]: glowY }}
-      onPointerMove={handleMove}
-      onPointerEnter={() => scale.set(1.035)}
+      style={{ ...style, rotateX: reducedMotion ? 0 : rotateX, rotateY: reducedMotion ? 0 : rotateY, scale: reducedMotion ? 1 : scale, ["--glow-x" as string]: glowX, ["--glow-y" as string]: glowY }}
+      onPointerMove={reducedMotion ? undefined : handleMove}
+      onPointerEnter={reducedMotion ? undefined : () => scale.set(1.035)}
       onPointerLeave={() => {
         px.set(0.5);
         py.set(0.5);
@@ -144,7 +150,8 @@ export function ScrollParallax({
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const y = useParallaxY(ref, range);
+  const reducedMotion = useReducedMotion();
+  const y = useParallaxY(ref, reducedMotion ? 0 : range);
   return (
     <motion.div ref={ref} className={className} style={{ y }}>
       {children}
@@ -264,6 +271,28 @@ export function Counter({ to, suffix = "", duration = 1.6 }: { to: number; suffi
   );
 }
 
+export function PointerGlow({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  const reducedMotion = useReducedMotion();
+
+  function handleMove(e: PointerEvent<HTMLElement>) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty("--mx", `${((e.clientX - rect.left) / rect.width) * 100}%`);
+    e.currentTarget.style.setProperty("--my", `${((e.clientY - rect.top) / rect.height) * 100}%`);
+  }
+
+  return (
+    <section className={className} onPointerMove={reducedMotion ? undefined : handleMove}>
+      {children}
+    </section>
+  );
+}
+
 const CHIP_ACCENTS = ["indigo", "orange", "yellow", "green", "purple"] as const;
 
 export function LogoChip({ src, alt, index }: { src: string; alt: string; index: number }) {
@@ -308,6 +337,7 @@ export function MagneticLink({
   href: string;
   className?: string;
 }) {
+  const reducedMotion = useReducedMotion();
   const x = useSpring(0, { stiffness: 250, damping: 18 });
   const y = useSpring(0, { stiffness: 250, damping: 18 });
 
@@ -321,8 +351,8 @@ export function MagneticLink({
     <MotionLink
       href={href}
       className={className}
-      style={{ x, y }}
-      onPointerMove={handleMove}
+      style={{ x: reducedMotion ? 0 : x, y: reducedMotion ? 0 : y }}
+      onPointerMove={reducedMotion ? undefined : handleMove}
       onPointerLeave={() => {
         x.set(0);
         y.set(0);

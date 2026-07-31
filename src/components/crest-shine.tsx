@@ -34,7 +34,7 @@ export function CrestShine({ size = 96, className }: { size?: number; className?
       }}
     >
       <motion.div className="crest-shine-inner" style={{ rotateX, rotateY }}>
-        <img src="/images/logo.png" alt="" aria-hidden="true" className="crest-shine-img" width={284} height={89} />
+        <img src="/images/crest.png" alt="" aria-hidden="true" className="crest-shine-img" width={240} height={240} />
         <motion.div className="crest-shine-spot" style={{ ["--mx" as string]: spotX, ["--my" as string]: spotY, opacity }} />
       </motion.div>
     </div>

@@ -38,12 +38,13 @@ const OUT_DIR = path.join(ROOT, "public/images/optimized");
 
 /** @type {Job[]} */
 const JOBS = [
-  // --- Hero: LCP-critical. Upscaled from the best source we have (735x552 /
-  // 654x381) via Lanczos3 + a light unsharp mask — this cannot invent detail
-  // that was never captured, but it removes the mush the *browser* would
-  // otherwise add by stretching a 735px file across a 1900px hero at 2x DPR.
-  { name: "hero/bg", src: "public/images/hero/bg.jpg", width: 2200, compact: 1000 },
-  { name: "hero/fg", src: "public/images/hero/fg.png", width: 2000, compact: 900, alpha: true },
+  // --- Hero: LCP-critical. The old bg+fg composite was built from a 735x552
+  // garden shot and a 654x381 cutout — both needed heavy upscaling and still
+  // looked soft blown up to hero size. aboutus.jpg is a genuine 1642x958
+  // capture of the campus gate, the highest-fidelity photo in the whole
+  // asset set, so this crops it (no upscale past its native width) instead
+  // of trying to rescue a smaller source.
+  { name: "hero/gate", src: "public/images/about/aboutus.jpg", width: 1600, height: 1000, position: "centre", compact: 900 },
 
   // --- Leadership: shot at different times with different lighting. `grade`
   // applies one consistent tone curve across all three so they read as a

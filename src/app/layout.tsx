@@ -27,6 +27,10 @@ export const metadata: Metadata = {
     title: `${SITE_NAME} — Bengaluru`,
     description: SITE_DESCRIPTION,
   },
+  // No explicit `icons` block: src/app/icon.png is Next.js's file-based
+  // favicon convention and generates the correct <link> tags on its own.
+  // Duplicating it here as a manual "/icon.png" URL is what caused
+  // "conflicting public file and page file" — see git history / chat log.
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useDialogBehaviour } from "@/lib/use-dialog-behaviour";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -76,6 +77,7 @@ export function MobileMenu({
 }) {
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const close = useCallback(() => { setOpen(false); setExpanded(null); }, []);
 
@@ -83,6 +85,9 @@ export function MobileMenu({
 
   // Close when the route changes so the panel never survives navigation.
   useEffect(() => { setOpen(false); }, [pathname]);
+
+  // The overlay portals to <body> (see below) so document must exist first.
+  useEffect(() => { setMounted(true); }, []);
 
   const isActive = (href: string) => pathname === href || pathname === href.slice(0, -1);
 
@@ -102,9 +107,10 @@ export function MobileMenu({
         <span className="menu-toggle-text">{open ? "Close" : "Menu"}</span>
       </button>
 
-      <AnimatePresence>
-        {open && (
-          <>
+      {mounted && createPortal(
+        <AnimatePresence>
+          {open && (
+            <>
             <motion.div
               className="menu-scrim"
               initial={{ opacity: 0 }}
@@ -156,9 +162,11 @@ export function MobileMenu({
                 <a href="mailto:seaeduinfo@seaedu.ac.in">seaeduinfo@seaedu.ac.in</a>
               </div>
             </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+            </>
+          )}
+        </AnimatePresence>,
+        document.body,
+      )}
     </>
   );
 }

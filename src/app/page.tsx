@@ -2,7 +2,7 @@ import Link from "next/link";
 import { CrestShine } from "@/components/crest-shine";
 import { Footer } from "@/components/footer";
 import { HeroParallax } from "@/components/hero-parallax";
-import { Counter, LogoChip, Marquee, Reveal, RevealItem, RevealStagger } from "@/components/motion";
+import { Counter, LogoChip, MagneticLink, Marquee, PointerGlow, Reveal, RevealItem, RevealStagger } from "@/components/motion";
 import { Photo } from "@/components/photo";
 import { StreamExplorer } from "@/components/stream-explorer";
 
@@ -24,6 +24,7 @@ const recruiters = Array.from({ length: 12 }, (_, i) => `/images/recruiters/r${i
 export default function Home() {
   return <>
     <section className="hero hero-parallax">
+      <HeroParallax />
       <RevealStagger className="hero-copy" step={0.12}>
         <RevealItem className="hero-crest-row">
           <CrestShine size={44} />
@@ -40,7 +41,6 @@ export default function Home() {
           </Link>
         </RevealItem>
       </RevealStagger>
-      <HeroParallax />
       <div className="hero-stamp">
         <div><b><Counter to={12} /></b><span>Institutions</span></div>
         <div><b><Counter to={160} suffix="+" /></b><span>Recruiters</span></div>
@@ -50,7 +50,11 @@ export default function Home() {
     </section>
     <section className="manifesto split-section">
       <p className="section-index">01 / THE SEA WAY</p>
-      <Reveal><h2 className="editorial-heading">Education should feel<br />like <em>possibility.</em></h2><p className="large-copy editorial-copy">S.E.A. Education Trust was established to make academic excellence accessible to every section of society. Today, it is a place where ambitions find their direction.</p><Link href="/campus-life/" className="text-link">Step inside the campus ↗</Link></Reveal>
+      <RevealStagger className="manifesto-copy">
+        <RevealItem><h2 className="editorial-heading">Education should feel<br />like <em>possibility.</em></h2></RevealItem>
+        <RevealItem><p className="large-copy editorial-copy">S.E.A. Education Trust was established to make academic excellence accessible to every section of society. Today, it is a place where ambitions find their direction.</p></RevealItem>
+        <RevealItem><Link href="/campus-life/" className="text-link">Step inside the campus ↗</Link></RevealItem>
+      </RevealStagger>
     </section>
     <section className="streams-intro">
       <Reveal className="section-heading"><span className="eyebrow">02 / SIX STREAMS, TWELVE INSTITUTIONS</span><h2>Pick a stream.<br />See who&rsquo;s in it.</h2><p>Every institution on campus, grouped into six academic streams — select one to see its programmes.</p></Reveal>
@@ -81,7 +85,7 @@ export default function Home() {
       <span className="eyebrow section-index">05 / WHERE OUR GRADUATES GO</span>
       <Marquee>{recruiters.map((src, i) => <LogoChip key={src} src={src} alt="Recruiter logo" index={i} />)}</Marquee>
     </section>
-    <Reveal><section className="admission-banner"><span>YOUR NEXT CHAPTER<br />STARTS HERE</span><Link href="/admissions/">Explore admissions <i>↗</i></Link></section></Reveal>
+    <Reveal><PointerGlow className="admission-banner"><span>YOUR NEXT CHAPTER<br />STARTS HERE</span><MagneticLink href="/admissions/" className="admission-link">Explore admissions <i>↗</i></MagneticLink></PointerGlow></Reveal>
     <Footer />
   </>;
 }
